@@ -125,6 +125,12 @@ class AuthorizationError(Error):
         return "nats: authorization failed"
 
 
+class AuthenticationExpiredError(Error):
+
+    def __str__(self) -> str:
+        return "nats: user authentication expired"
+
+
 class NoServersError(Error):
 
     def __str__(self) -> str:
