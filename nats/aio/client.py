@@ -1423,7 +1423,8 @@ class Client:
             return
 
         if AUTHORIZATION_VIOLATION in err_msg:
-            self._err = errors.AuthorizationError()
+            await self._process_op_err(errors.AuthorizationError())
+            return
         else:
             prot_err = err_msg.strip("'")
             m = f"nats: {prot_err}"
